@@ -110,8 +110,23 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  let result = '';
+  let n = Math.floor(num / 10);
+  if (n === 1) result += 'X';
+  if (n === 2) result += 'XX';
+  if (n === 3) result += 'XXX';
+  n = num % 10;
+  if (n === 1) result += 'I';
+  if (n === 2) result += 'II';
+  if (n === 3) result += 'III';
+  if (n === 4) result += 'IV';
+  if (n === 5) result += 'V';
+  if (n === 6) result += 'VI';
+  if (n === 7) result += 'VII';
+  if (n === 8) result += 'VIII';
+  if (n === 9) result += 'IX';
+  return result;
 }
 
 /**
@@ -248,8 +263,16 @@ function isContainNumber(num, digit) {
  *  [2, 3, 9, 5] => 2       => 2 + 3 === 5 then balance element is 9 and its index = 2
  *  [1, 2, 3, 4, 5] => -1   => no balance element
  */
-function getBalanceIndex(/* arr */) {
-  throw new Error('Not implemented');
+function getBalanceIndex(arr) {
+  if (arr.length <= 2) return -1;
+  let sum = 0;
+  let sum1 = 0;
+  for (let i = 0; i < arr.length; i += 1) sum += arr[i];
+  for (let i = 0; i < arr.length - 1; i += 1) {
+    sum1 += arr[i];
+    if (sum1 === sum - sum1 - arr[i + 1]) return i + 1;
+  }
+  return -1;
 }
 
 /**
@@ -310,18 +333,8 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(arr) {
-  const arr1 = arr;
-  for (let i = 0; i < arr.length; i += 1) {
-    for (let j = i; j < arr.length; j += 1) {
-      if (arr1[i] >= arr1[j]) {
-        const z = arr1[i];
-        arr1[i] = arr1[j];
-        arr1[j] = z;
-      }
-    }
-  }
-  return arr1;
+function sortByAsc(/* arr */) {
+  throw new Error('Not implemented');
 }
 
 /**
